@@ -1,5 +1,5 @@
 """
-WSGI config for eventwiz project.
+WSGI config for evently project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -8,9 +8,11 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 
 import os
+from whitenoise import WhiteNoise
 
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eventwiz.settings')
 
 application = get_wsgi_application()
+application = WhiteNoise(application)
