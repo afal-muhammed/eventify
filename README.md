@@ -5,7 +5,7 @@
 ## Requirements  (Prerequisites)
 Tools and packages required to successfully setup this project.
 
-Django 3.2
+Django==3.2
 Pillow==8.4.0
 
 
