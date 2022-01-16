@@ -8,8 +8,6 @@ class EmailModelBackend(ModelBackend):
     """
 
     def authenticate(self, request, username=None, password=None, **kwargs):
-
-        print(kwargs)
         if '@' in username:
             username = username.lower()
             kwargs = {'email': username}
@@ -19,7 +17,6 @@ class EmailModelBackend(ModelBackend):
             return None
         try:
             user = User.objects.get(**kwargs)
-
         except User.DoesNotExist:
             User.set_password(password)
 

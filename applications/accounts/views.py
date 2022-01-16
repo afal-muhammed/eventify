@@ -9,7 +9,6 @@ from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views import View
 from applications.accounts.models import User
-from applications.events.models import Events
 
 
 class LoginView(View):
@@ -88,15 +87,6 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('/accounts/login')
-
-
-class MyEventsView(View):
-
-    @method_decorator(login_required)
-    def get(self, request):
-        now = datetime.datetime.now()
-        events = Events.objects.filter(user_obj=self.request.user).order_by("start_date")
-        return render(request, 'event-listing.html', {"events": events, 'now': now})
 
 
 def handler404(request):

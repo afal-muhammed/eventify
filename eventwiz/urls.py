@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('eventwiz-admin/', admin.site.urls),
     path('accounts/', include('applications.accounts.urls')),
     path('', include('applications.events.urls')),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
