@@ -1,0 +1,21 @@
+DEBUG = True
+
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.database',
+
+        'NAME': 'db_name',
+
+        'USER': 'db_username',
+
+        'PASSWORD': 'db_password',
+
+        'HOST': '',
+
+        'PORT': '5432',
+
+    }
+
+}

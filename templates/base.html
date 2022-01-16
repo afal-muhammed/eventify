@@ -1,0 +1,118 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/cloudflare.js' %}"></script>
+    <link rel="shortcut icon" href="#">
+    <title>Evently</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link href="{% static 'css/set1.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div id="load"></div>
+<div class="nav-menu sticky-top">
+    <div class="bg transition">
+        <div class="container-fluid fixed">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="{% url 'landing' %}"><img src="{% static 'images/logo_3.png' %}" alt="logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="ti-menu"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    {% if request.user.is_authenticated %}
+                                   <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                    {{request.user.first_name}}
+                                        <img style="border-radius: 50%; max-height:30px" src="{{request.user.get_image}}">
+                                        <span class="ti-angle-down"></span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">My Events</a>
+                                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+
+                                    </div>
+                                </li>
+                                    {% else %}
+                                    {% if not "/login" in request.path and not "/signup" in request.path%}
+                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                    {% endif %}
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% block content %}
+{% endblock %}
+
+
+<footer class="main-block gray">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 responsive-wrap">
+                <div class="location">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p>503 Sylvan Ave, Mountain View<br> CA 94041, United States</p>
+                </div>
+            </div>
+            <div class="col-md-4 responsive-wrap">
+                <div class="footer-logo_wrap">
+                    <img src="{% static 'images/eventify.png' %}" alt="#" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-4 responsive-wrap">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <p>Copyright © 2017 Listed Inc. All rights reserved</p>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+$('#load').hide();
+$(document)
+  .ajaxStart(function () {
+     $('#load').show();
+  })
+  .ajaxStop(function () {
+     $('#load').hide();
+  });
+</script>
+</body>
+</html>
