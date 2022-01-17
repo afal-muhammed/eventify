@@ -32,9 +32,7 @@
                         {% if event.is_published %}
                         <p class="text-muted">Published By:{{event.user_obj.first_name}}</p>
                         {% else %}
-                        {% if event.user_obj == request.user %}
                          <span><a href="{% url 'publish-event' event.slug %}">Publish</a></span>
-                        {% endif %}
                         {% endif %}
                         <div class="blog-text">
 <!--                            <p class="lead">-->
