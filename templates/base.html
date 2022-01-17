@@ -38,7 +38,11 @@
                                    <li class="nav-item dropdown">
                                     <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
                                        aria-expanded="false">
+                                        {% if request.user.first_name %}
                                     {{request.user.first_name}}
+                                        {% else %}
+                                         {{request.user.username}}
+                                        {% endif %}
                                         <img style="border-radius: 50%; max-height:30px" src="{{request.user.get_image}}">
                                         <span class="ti-angle-down"></span>
                                     </a>

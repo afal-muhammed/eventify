@@ -6,13 +6,18 @@
 Tools and packages required to successfully setup this project.
 
 Django==3.2
+dj-database-url==0.5.0
+django-environ==0.8.1
+django-heroku==0.3.1
 Pillow==8.4.0
-
+requests==2.27.0
+stripe==2.32.1
+urllib3==1.26.7
 
 
 ## Installation
- $ `git clone project-url`
- $ `cd proj-dir`
+ `$ git clone project-url`
+ `$ cd proj-dir`
 `$ pip install -r requirements.txt`
 
 ## Features

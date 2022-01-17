@@ -28,7 +28,7 @@
             {% for event in page_obj %}
             <div class="col-md-4 card-1">
                 <div class="card">
-                    <a class="card-anchor" href="#">
+                    <a class="card-anchor" href="{% url 'event-detail' event.slug %}">
                         <img class="card-img-top card-image" src="{{event.get_banner_image}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{event.title}}</h5>
@@ -39,7 +39,7 @@
                             <p class="card-text">
                                 {{ event.description|linebreaks|safe|truncatewords:20 }}
                                 {% ifnotequal event.description event.description|truncatewords:20 %}
-                                <a class="readmore" href="#"><B>Continue Reading</B>...</a>
+                                <a class="readmore" href="{% url 'event-detail' event.slug %}"><B>Continue Reading</B>...</a>
                                 {%endifnotequal%}
                             </p>
                         </div>
@@ -72,7 +72,7 @@
                             {% endif %}
                         </span>
                         {% else %}
-                        <span><a href="#">Publish</a></span>
+                        <span><a href="{% url 'publish-event' event.slug %}">Publish</a></span>
                         {% endif %}
                     </div>
                     <!--                    </a>-->
