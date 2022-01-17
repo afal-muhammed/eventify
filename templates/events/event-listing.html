@@ -50,21 +50,19 @@
                         {% if event.is_published %}
                         <span class="open-close_green">
                             {% if event.end_date.date == now.date and event.start_date.date <= now.date %}
-                                {% if event.start_date.time < now.time and event.end_date.time > now.time %}
+                                {% if event.end_date.time > now.time %}
                                 On Going
                                 {% else %}
-                                {% if event.end_date.time < now.time  %}
                                 Past Event
                                 {% endif %}
-                                {% endif %}
                             {% else %}
-                                {% if event.end_date.date > now.date and event.start_date.date <= now.date %}
+                                {% if event.end_date.date > now.date and event.start_date.date <= now.date and event.start_date.time < now.time %}
                                 On Going
                                 {% else %}
                                 {% if event.end_date.date >= now.date %}
                                 Published
                                 {% else %}
-                                {% if event.end_date.date <= now.date and event.end_date.time < now.time  %}
+                                {% if event.end_date.date <= now.date  %}
                                 Past Event
                                 {% endif %}
                                 {% endif %}
