@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="top-menu ipad-home-top">
+  <div class="row mg-0">
+    <div class="col-sm-12 portion-2 margin-top">
+<!--      <h2 class="hide-on-mobile">{{ flatpage.title }}</h2>-->
+       <div class="d-flex flex align-items-center h-v info theme">
+           <img src="{% static 'images/404.jpg' %}" style="width:100%;">
+      </div>
+        <div class="text-center p-5 w-100">
+            Go back to <a href="{% url 'landing' %}"  class="no-hover class-pointer">home</a>
+         </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

@@ -89,12 +89,11 @@ class LogoutView(View):
         return redirect('/accounts/login')
 
 
-def handler404(request):
-    response = render(request, '404.html')
+def handler404(request, exception, template_name="404.html"):
+    response = render(request, template_name)
+    response.status_code = 404
     return response
 
 
-def handler500(request):
-    response = render(request, '500.html')
-    response.status_code = 500
-    return response
+def handler500(request, *args, **argv):
+    return render(request, '500.html', status=500)

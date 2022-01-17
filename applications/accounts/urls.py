@@ -7,5 +7,5 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name="logout"),
     ]
 # TODO: Uncomment below lines for final deployment
-# handler404 = views.handler404
-# handler500 = views.handler500
+handler404 = views.handler404
+handler500 = views.handler500
