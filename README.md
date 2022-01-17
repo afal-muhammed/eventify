@@ -13,6 +13,9 @@ Pillow==8.4.0
 requests==2.27.0
 stripe==2.32.1
 urllib3==1.26.7
+boto3==1.20.37
+django-storages==1.12.3
+
 
 
 ## Installation
@@ -22,6 +25,7 @@ urllib3==1.26.7
 
 ## Features
 * Used Bootstrap to make it 100% responsive
+* Used Stripe as the payment gateway
 
 
 ## Tech Stack / Built With
@@ -30,3 +34,10 @@ urllib3==1.26.7
 
 ## Authors 
 Mohammed Afal CM  – afal@sayonetech.com
+
+# Deployment Notes
+
+* Deployed to Heroku
+* http://event-fy.herokuapp.com
+* Amazon s3 for serving static and media files
+
